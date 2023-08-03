@@ -1,11 +1,16 @@
 @import './general.css';
 
-.questions {
+.questions,
+.questions__end {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 4rem;
+}
+
+.questions__end {
+    gap: 2rem
 }
 
 .question {

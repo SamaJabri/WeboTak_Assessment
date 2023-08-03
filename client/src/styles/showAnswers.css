@@ -1,3 +1,13 @@
 .answers {
     width: 100%;
 }
+
+.answers h2 {
+    text-transform: capitalize;
+}
+
+.answers__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

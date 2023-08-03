@@ -90,9 +90,10 @@ const getQuestionsForUser = async (req, res) => {
   } else {
     // Get the unanswered questions
     userUnansweredQuestions = await db.manyOrNone(
-      `SELECT * FROM questions WHERE id != ANY($1);`,
+      `SELECT * FROM questions WHERE id NOT IN ($1:csv);`,
       [userAnsweredQuestions.map(({ question_id }) => question_id)]
     );
+    console.log(userAnsweredQuestions.map(({ question_id }) => question_id));
   }
 
   if (userUnansweredQuestions.length > 0) {

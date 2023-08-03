@@ -10,7 +10,7 @@ import {
 const Graph = ({ data }) => {
   return (
     <ResponsiveContainer width="100%" height={300}>
-      <BarChart data={data}>
+      <BarChart data={data} margin={{ left: -40, top: 30 }}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="answer" />
         <YAxis />

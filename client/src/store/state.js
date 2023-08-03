@@ -100,6 +100,22 @@ const useWeboTakStore = create(
         }
       },
 
+      deleteQuestion: async (id) => {
+        let response;
+
+        try {
+          response = await axios.delete(
+            `http://localhost:3000/full-question/${id}`
+          );
+          console.log(response.data);
+
+          return response;
+        } catch (error) {
+          console.error("Error deleteing question:", error);
+          return error;
+        }
+      },
+
       getAnalysis: async () => {
         let response;
 

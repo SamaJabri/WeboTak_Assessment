@@ -15,11 +15,9 @@ const Question = ({ id, questionText, answerOptions, onNext }) => {
 
   const handleQuestionSubmittion = async (e) => {
     e.preventDefault();
-    console.log(id);
-    const res = await answerQuestion(id, activeOptionId);
 
+    const res = await answerQuestion(id, activeOptionId);
     onNext();
-    console.log(res);
   };
 
   return (
