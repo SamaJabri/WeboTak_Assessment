@@ -1,0 +1,64 @@
+@import './general.css';
+
+.questions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+}
+
+.question {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.question p {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.question span {
+    font-weight: bold;
+}
+
+.question button {
+    margin-top: 3rem;
+}
+
+.option {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: white;
+    color: var(--color-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 0.2rem;
+    width: 100%;
+    height: 3rem;
+    transition: all 0.3s;
+}
+
+.option:hover {
+    cursor: pointer;
+}
+
+.option--active {
+    background-color: var(--color-secondary);
+    color: white;
+}
+
+@media (min-width: 800px) {
+    .question p {
+        font-size: 1.8rem;
+    }
+
+    .option {
+        padding: 0.5rem 1.5rem;
+        font-size: 1.6rem;
+        height: 4rem;
+    }
+}

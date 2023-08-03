@@ -1,0 +1,25 @@
+@import './general.css';
+
+.admin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    padding: 1rem;
+}
+
+.admin__options {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+@media (min-width: 800px) {
+    .admin__options {
+        flex-direction: row;
+        gap: 3rem;
+    }
+}
