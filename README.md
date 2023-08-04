@@ -33,8 +33,10 @@ Clone the repository: `git clone https://github.com/SamaJabri/WeboTak_Assessment
 
 Before proceeding with this, make sure you set the `POSTGRES_URL` in the `.env` file. Check [configuration](#configuration).
 
-1. Go to `server/src/controllers/controller.js` file.
-2. Uncomment the `setupDb()` function call on line 52 to set up the db.
+1. Create a database called `WeboTak` or whatever name you prefer.
+2. Make sure the connection string in `.env` has the right parameters; `username`, `password`, `port`, and finally `database_name`.
+3. In the terminal type `node src/db-setup.js`.
+4. Your database is created now and ready to go!
 
 ### Frontend
 
@@ -52,15 +54,18 @@ You can find more info in the `.env.example` file.
 ## Usage
 
 1. Navigate to the server side: `cd server/`
-2. Start the backend server: `npm run dev`
-3. The backend API will be accessible at `http://localhost:3000` or your customized port number.
-4. Open another terminal and Navigate to the client side: `cd client/`
-5. Start the [Vite](https://vitejs.dev/) development server: `npm run dev`
-6. The project will now be hosted on `http://localhost:5173/`
+2. In the terminal type `node src/db-setup.js`
+3. Start the backend server: `npm start`
+4. The backend API will be accessible at `http://localhost:3000` or your customized port number.
+5. Open another terminal and Navigate to the client side: `cd client/`
+6. Start the [Vite](https://vitejs.dev/) development server: `npm run dev`
+7. The project will now be hosted on `http://localhost:5173/`
+8. That's it you can start using the app now!
 
 Make sure you connected a reliable database connection so the application won't show server errors.
 
 ## Routes
+
 - `/` --> User path
 - `/admin/add` --> To add a question
 - `/admin/show` --> Show survey answers analysis

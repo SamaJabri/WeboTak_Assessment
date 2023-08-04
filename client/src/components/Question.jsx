@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import Button from "./Button";
 import Option from "./Option";
+
 import useWeboTakStore from "../store/state";
 
 const Question = ({ id, questionText, answerOptions, onNext }) => {
@@ -23,14 +24,14 @@ const Question = ({ id, questionText, answerOptions, onNext }) => {
   return (
     <form key={id} className="question" onSubmit={handleQuestionSubmittion}>
       <p>
-        <span>Question {id}: </span>
-        {questionText}?
+        <span>Question: </span>
+        {questionText.toLowerCase()}?
       </p>
 
       {answerOptions.map(({ id, answer }) => (
         <Option
           key={id}
-          value={answer}
+          value={answer.toLowerCase()}
           className={`option ${activeOptionId === id ? "option--active" : ""}`}
           onClick={() => handleOptionClick(id)}
         />

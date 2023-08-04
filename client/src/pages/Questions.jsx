@@ -1,21 +1,15 @@
 import { useEffect, useState } from "react";
+
 import Question from "../components/Question";
-import useWeboTakStore from "../store/state";
 import Button from "../components/Button";
+
+import useWeboTakStore from "../store/state";
 
 const Questions = () => {
   const [questions, setQuestions] = useState([]);
-  //const questions = useWeboTakStore((state) => state.questions);
   const getQuestionsForUser = useWeboTakStore(
     (state) => state.getQuestionsForUser
   );
-  /*   const questions = [
-    {
-      id: 0,
-      questionText: "Which vegetable do you prefer",
-      answerOptions: ["Lattuce", "Cucumber", "Tomatoes"],
-    },
-  ]; */
 
   const fetchData = async () => {
     const res = await getQuestionsForUser();

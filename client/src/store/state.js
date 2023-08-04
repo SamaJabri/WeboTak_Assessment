@@ -16,7 +16,6 @@ const useWeboTakStore = create(
           response = await axios.post("http://localhost:3000/user", {
             name,
           });
-          console.log(response.data);
 
           set({
             currentUser: response.data,

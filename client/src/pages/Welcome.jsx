@@ -9,6 +9,9 @@ const Welcome = () => {
   const navigate = useNavigate();
 
   const addUser = useWeboTakStore((state) => state.addUser);
+  const getQuestionsForUser = useWeboTakStore(
+    (state) => state.getQuestionsForUser
+  );
 
   const handleNameSubmittion = async (e) => {
     e.preventDefault();
@@ -16,10 +19,16 @@ const Welcome = () => {
     const { name } = e.target.elements;
 
     const res = await addUser(name.value);
-
-    res.status === 201
-      ? navigate("/question")
-      : alert("You answered all questions");
+    const userQuestions = await getQuestionsForUser();
+    console.log(userQuestions);
+    if (
+      res === 201 ||
+      (res.response?.status === 409 && userQuestions.length > 0)
+    ) {
+      navigate("/question");
+    } else {
+      alert("You answered all questions");
+    }
   };
 
   return (
