@@ -7,13 +7,10 @@ const addUser = async (req, res) => {
   const { name } = req.body;
 
   // Check if user already exists
-  const doesUserExist = await db.oneOrNone(
-    `SELECT * FROM users WHERE name = $1;`,
-    name
-  );
+  const user = await db.oneOrNone(`SELECT * FROM users WHERE name = $1;`, name);
 
-  if (doesUserExist) {
-    return res.status(409).json({ msg: "Username exists" });
+  if (user) {
+    return res.status(200).json(user);
   } else {
     const newUser = await db.one(
       `INSERT INTO users (name) VALUES ($1) RETURNING *;`,
@@ -33,7 +30,8 @@ const getQuestionsForUser = async (req, res) => {
     `SELECT question_id FROM users_questions WHERE user_id = $1;`,
     Number(id)
   );
-
+  console.log(id);
+  console.log(userAnsweredQuestions);
   // Get the unanswered questions
   let userUnansweredQuestions;
   if (userAnsweredQuestions.length === 0) {

@@ -20,10 +20,10 @@ const Welcome = () => {
 
     const res = await addUser(name.value);
     const userQuestions = await getQuestionsForUser();
-    console.log(userQuestions);
+
     if (
-      res === 201 ||
-      (res.response?.status === 409 && userQuestions.length > 0)
+      res.status === 201 ||
+      (res.status === 200 && userQuestions.length > 0)
     ) {
       navigate("/question");
     } else {
@@ -37,7 +37,7 @@ const Welcome = () => {
 
       <form className="welcome__name-form" onSubmit={handleNameSubmittion}>
         <label>Please provide a name</label>
-        <Input placeholder="Ex: Sama" type="text" name="name" />
+        <Input placeholder="Ex: John" type="text" name="name" />
 
         <Button text="Continue" bgColor="#6A48A1" color="white" type="submit" />
       </form>

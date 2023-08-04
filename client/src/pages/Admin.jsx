@@ -1,14 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 
 import Button from "../components/Button";
 
+import useWeboTakStore from "../store/state";
+
 const Admin = () => {
-  const [activeButton, setActiveButton] = useState(null);
+  const [activeButton, setActiveButton] = useState();
+
+  const adminPage = useWeboTakStore((state) => state.adminPage);
+  const setAdminPage = useWeboTakStore((state) => state.setAdminPage);
 
   const handleButtonClick = (value) => {
     setActiveButton(value);
+    setAdminPage(value);
   };
+
+  useEffect(() => {}, [activeButton, setAdminPage]);
 
   return (
     <div className="admin">
@@ -18,7 +26,7 @@ const Admin = () => {
           type="text"
           navigateTo={"add"}
           onClick={() => handleButtonClick("Add")}
-          bgColor={activeButton === "Add" ? "#515151" : "transparent"}
+          bgColor={adminPage === "Add" ? "#515151" : "transparent"}
           color="white"
         />
         <Button
@@ -26,7 +34,7 @@ const Admin = () => {
           type="text"
           navigateTo={"show"}
           onClick={() => handleButtonClick("Show")}
-          bgColor={activeButton === "Show" ? "#515151" : "transparent"}
+          bgColor={adminPage === "Show" ? "#515151" : "transparent"}
           color="white"
         />
       </div>

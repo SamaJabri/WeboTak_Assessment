@@ -7,6 +7,10 @@ const useWeboTakStore = create(
   persist(
     (set, get) => ({
       currentUser: {},
+      adminPage: "",
+
+      // for Admin page to keep track of which button is clicked
+      setAdminPage: (value) => set({ adminPage: value }),
 
       addUser: async (name) => {
         let response;

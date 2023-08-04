@@ -13,7 +13,7 @@ const Graph = ({ data }) => {
       <BarChart data={data} margin={{ left: -40, top: 30 }}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="answer" />
-        <YAxis />
+        <YAxis allowDecimals={false} />
         <Bar dataKey="numofanswers" fill="#6A48A1" />
       </BarChart>
     </ResponsiveContainer>
