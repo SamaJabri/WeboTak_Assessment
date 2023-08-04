@@ -7,7 +7,6 @@ const useWeboTakStore = create(
   persist(
     (set, get) => ({
       currentUser: {},
-      //questions: [],
 
       addUser: async (name) => {
         let response;

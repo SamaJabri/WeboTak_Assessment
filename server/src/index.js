@@ -36,7 +36,7 @@ app.post("/full-question", addFullQuestion);
 // Delete a question with options
 app.delete("/full-question/:id", deleteFullQuestion);
 
-// Get Question info
+// Get Question info (Analysis)
 app.get("/questions-info", getQuestionsAnalysis);
 
 app.listen(PORT, () =>

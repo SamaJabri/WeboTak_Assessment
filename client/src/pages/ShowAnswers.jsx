@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+
 import Graph from "../components/Graph";
-import useWeboTakStore from "../store/state";
 import Button from "../components/Button";
+
+import useWeboTakStore from "../store/state";
 
 const ShowAnswers = () => {
   const [questions, setQuestions] = useState([]);
@@ -9,7 +11,7 @@ const ShowAnswers = () => {
   const deleteQuestion = useWeboTakStore((state) => state.deleteQuestion);
 
   const handleQuestionDeletion = async (id) => {
-    const res = await deleteQuestion(id);
+    await deleteQuestion(id);
 
     fetchData();
   };

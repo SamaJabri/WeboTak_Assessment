@@ -14,12 +14,10 @@ const Questions = () => {
   const fetchData = async () => {
     const res = await getQuestionsForUser();
     setQuestions(res);
-    console.log(res);
   };
 
   useEffect(() => {
     fetchData();
-    console.log(fetchData());
   }, []);
 
   return (
@@ -43,13 +41,3 @@ const Questions = () => {
 };
 
 export default Questions;
-
-/*questions.length > 0 ? (
-        questions.map(({ id, questionText, answerOptions }) => (
-          <Question
-            key={id}
-            id={id}
-            questionText={questionText}
-            answerOptions={answerOptions}
-          />
-        )) */
